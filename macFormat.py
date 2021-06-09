@@ -3,13 +3,9 @@ import sys
 first_arg=sys.argv[1]
 second_arg=sys.argv[2]
 
-print("Hello world")
-#mac_not_formated = input("Insert MAC (Any format):\n") # user input cmdline
 mac_not_formated = first_arg
-print(mac_not_formated) # print user input raw
 
 mac_sanitized = ''.join(filter(str.isalnum, mac_not_formated)) #remove all non-alpanumerical
-print(mac_sanitized) # print sanitized input
 
 # formating pre for xxxx-xxxx format
 first_four_chars = mac_sanitized[:4]
@@ -24,7 +20,6 @@ fourth_two = mac_sanitized[6:8]
 fifth_two = mac_sanitized[8:10]
 sixth_two = mac_sanitized[10:]
 
-#choice = input("1 for xxxxxxxxxx. \n2 for xxxx-xxxx-xxxx. \n3 for xx:xx:xx:xx:xx:xx. \n") # let user pick formating cmdline
 choice = int(second_arg)
 if choice == 1:
     print(mac_sanitized)
