@@ -1,0 +1,36 @@
+import sys
+# passing args
+first_arg=sys.argv[1]
+second_arg=sys.argv[2]
+
+print("Hello world")
+#mac_not_formated = input("Insert MAC (Any format):\n") # user input cmdline
+mac_not_formated = first_arg
+print(mac_not_formated) # print user input raw
+
+mac_sanitized = ''.join(filter(str.isalnum, mac_not_formated)) #remove all non-alpanumerical
+print(mac_sanitized) # print sanitized input
+
+# formating pre for xxxx-xxxx format
+first_four_chars = mac_sanitized[:4]
+middle_four_chars = mac_sanitized[4:8]
+last_four_chars = mac_sanitized[8:]
+
+# formating pre for xx:xx format
+first_two = mac_sanitized[:2]
+second_two = mac_sanitized[2:4]
+third_two = mac_sanitized[4:6]
+fourth_two = mac_sanitized[6:8]
+fifth_two = mac_sanitized[8:10]
+sixth_two = mac_sanitized[10:]
+
+#choice = input("1 for xxxxxxxxxx. \n2 for xxxx-xxxx-xxxx. \n3 for xx:xx:xx:xx:xx:xx. \n") # let user pick formating cmdline
+choice = int(second_arg)
+if choice == 1:
+    print(mac_sanitized)
+elif choice == 2:
+    print(f"{first_four_chars}-{middle_four_chars}-{last_four_chars}") #formatting x
+elif choice == 3:
+    print(f"{first_two}:{second_two}:{third_two}:{fourth_two}:{fifth_two}:{sixth_two}") #
+else:
+    ("error")
